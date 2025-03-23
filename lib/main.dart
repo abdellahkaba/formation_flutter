@@ -4,9 +4,20 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+// MaterialApp
+//Scaffold
+//App title
+//Button navigation bar state
+
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int selectIndex = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,40 +28,20 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
         ),
       ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int currentIndex = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Flutter App"), centerTitle: true),
-      body:
-          currentIndex == 0
-              ? Center(child: Text("1"))
-              : Center(child: Text("2")),
-      bottomNavigationBar: NavigationBar(
-        destinations: [
-          NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-          NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
-        ],
-        onDestinationSelected: (int value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-        selectedIndex: currentIndex,
+      home: Scaffold(
+        appBar: AppBar(title: Text("Flutter App")),
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+            NavigationDestination(icon: Icon(Icons.person), label: "Person"),
+          ],
+          onDestinationSelected: (int value) {
+            setState(() {
+              selectIndex = value;
+            });
+          },
+          selectedIndex: selectIndex,
+        ),
       ),
     );
   }
