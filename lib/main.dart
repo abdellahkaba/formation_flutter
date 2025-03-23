@@ -22,8 +22,14 @@ class MyApp extends StatelessWidget {
           title: Text("Flutter App"),
           centerTitle: false,
           leading: Icon(Icons.login),
-          actions: [Text("Action"), Icon(Icons.login)],
-          backgroundColor: Theme.of(context).primaryColor,
+        ),
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+            NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
+          ],
+          onDestinationSelected: (int value) {},
+          selectedIndex: 1,
         ),
       ),
     );
