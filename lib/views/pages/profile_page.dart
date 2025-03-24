@@ -73,7 +73,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 });
               },
             ),
-            GestureDetector(
+            InkWell(
+              splashColor: Colors.teal,
               onTap: () {
                 print("Image selected");
               },
