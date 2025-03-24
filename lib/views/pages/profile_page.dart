@@ -11,7 +11,7 @@ class _ProfilePageState extends State<ProfilePage> {
   TextEditingController _controller = TextEditingController();
   bool? isChecked = false;
   bool isSwitch = false;
-  double sliderValue = 0.09;
+  double sliderValue = 0.0;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -65,7 +65,7 @@ class _ProfilePageState extends State<ProfilePage> {
               },
             ),
             Slider.adaptive(
-              max: 10,
+              max: 10.0,
               value: sliderValue,
               onChanged: (double value) {
                 setState(() {
@@ -79,11 +79,24 @@ class _ProfilePageState extends State<ProfilePage> {
                 print("Image selected");
               },
               child: Container(
-                height: 200,
+                height: 50,
                 width: double.infinity,
                 color: Colors.white12,
               ),
             ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.teal,
+                foregroundColor: Colors.white,
+              ),
+              child: Text("Click me"),
+            ),
+            ElevatedButton(onPressed: () {}, child: Text("ElevateButton")),
+            FilledButton(onPressed: () {}, child: Text("FileButton")),
+            TextButton(onPressed: () {}, child: Text("Text Button")),
+            OutlinedButton(onPressed: () {}, child: Text("Outline button")),
+            CloseButton(),
           ],
         ),
       ),
