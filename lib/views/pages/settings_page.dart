@@ -18,6 +18,11 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Settings Page"),
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         // automaticallyImplyLeading: false,
       ),
 
