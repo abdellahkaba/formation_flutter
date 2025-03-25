@@ -9,7 +9,11 @@ class HeroWidget extends StatelessWidget {
       tag: 'hero1',
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20.0),
-        child: Image.network('https://placehold.co/600x400/png?text=Flutter'),
+        child: Image.network(
+          'https://placehold.co/600x400/png?text=Flutter',
+          color: Colors.teal,
+          colorBlendMode: BlendMode.darken,
+        ),
       ),
     );
   }
